@@ -9,6 +9,27 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+
+//call sync method
+const db = require("./models");
+db.sequelize.sync()
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
+
+  /*
+  In development, you may need to drop existing tables and re-sync database. Just use force: true as following code:
+  db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
+  */
+
+
+
+
 // parse requests of content-type - application/json
 app.use(express.json());
 
