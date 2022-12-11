@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-require("./routes/turorial.routes")(app);
+
 
 const app = express();
 
@@ -42,6 +42,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to server application." });
 });
 
+
+//require("./routes/turorial.routes")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
