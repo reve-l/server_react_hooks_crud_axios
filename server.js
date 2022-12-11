@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("./routes/turorial.routes")(app);
 
 const app = express();
 
