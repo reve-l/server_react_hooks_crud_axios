@@ -43,7 +43,8 @@ app.get("/", (req, res) => {
 });
 
 
-//require("./routes/turorial.routes")(app);
+routes=require('./routes/tutorial.routes');
+app.use('/api/tutorials', routes);
 // set port, listen for requests
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
