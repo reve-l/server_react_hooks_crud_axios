@@ -20,7 +20,7 @@ export const createTuto = (req, res)=>{
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
     createdAt: req.body.createdAt,
-    updateAt: req.body.createdAt
+    updatedAt: req.body.createdAt
   };
 
   db.query(q, [tutorial],(err)=>{
@@ -42,7 +42,7 @@ export const updateTuto = (req, res)=>{
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
     createdAt: req.body.createdAt,
-    updateAt: req.body.createdAt
+    updatedAt: req.body.createdAt
   };
 
   db.query(q, [...tutorial,req.params.id],(err)=>{
