@@ -9,6 +9,8 @@ export const db = mysql.createConnection({
 })
 
 
+//ANCIEN CODE..
+//::
 /*module.exports = {
     HOST: "localhost",
     USER: "root",
