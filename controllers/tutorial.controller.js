@@ -13,14 +13,14 @@ export const getTuto = (_, res)=>{
 
 
 export const createTuto = (req, res)=>{
-  const q="INSERT INTO tutorials (`title`,`description`,`published`,`createdAt`,`updateAt`) VALUES(?)";
+  const q="INSERT INTO tutorials (`title`,`description`,`published`,`createdAt`,`updatedAt`) VALUES(?)";
   
   const tutorial = {
     title: req.body.title,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
-    createdAt: req.body.createdAt,
-    updatedAt: req.body.createdAt
+    createdAt: new Date(),
+    updatedAt: new Date()
   };
 
   db.query(q, [tutorial],(err)=>{
@@ -42,7 +42,7 @@ export const updateTuto = (req, res)=>{
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
     createdAt: req.body.createdAt,
-    updatedAt: req.body.createdAt
+    updatedAt: req.body.updatedAt
   };
 
   db.query(q, [...tutorial,req.params.id],(err)=>{
@@ -50,9 +50,6 @@ export const updateTuto = (req, res)=>{
       return res.status(200).json("okup");
   });
 }
-
-
-
 
 
 
