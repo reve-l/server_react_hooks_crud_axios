@@ -3,15 +3,18 @@
 
 import express from "express";
 import cors from "cors";
-import Routes from "./routes/tutorial.routes";
+import mesRoutes from "./routes/tutorial.routes.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.use("/",Routes);
-app.listen(5000);
+//routes=require('./routes/tutorial.routes');
+app.use('/', mesRoutes);
+
+//app.use("/",Routes);
+//app.listen(5000);
 
 
 /*var corsOptions = {
@@ -59,7 +62,7 @@ db.sequelize.sync()
 app.use('/', routes);*/
 
 // set port, listen for requests
-/*const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
-});*/
+});

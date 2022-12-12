@@ -1,16 +1,16 @@
 
-import mysql from "mysql"
+import mysql from "mysql2";
 
 export const db = mysql.createConnection({
-    HOST: "localhost",
-    USER: "root",
-    PASSWORD: "root",
-    DATABASE: "reacthookscrud"
+    host: "localhost",
+    user: "cea4",
+    password: "",
+    database: "reacthookscrud"
 })
 
 
 //ANCIEN CODE..
-//::
+//::dgbDi12345
 /*module.exports = {
     HOST: "localhost",
     USER: "root",
