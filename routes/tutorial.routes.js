@@ -1,10 +1,17 @@
 import express from "express";
-import {getTuto} from "../controllers/tutorial.controller.js";
+import {getTuto,createTuto,updateTuto,deleteTuto} from "../controllers/tutorial.controller.js";
 
 const router = express.Router();
 
 router.get('/',getTuto);
-//router.get('/:id',getOneTuto);
+
+router.post('/',createTuto);
+
+router.put('/',updateTuto);
+
+router.delete('/',deleteTuto);
+
+
 
 
 
