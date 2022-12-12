@@ -1,4 +1,15 @@
-module.exports = {
+
+import mysql from "mysql"
+
+export const db = mysql.createConnection({
+    HOST: "localhost",
+    USER: "root",
+    PASSWORD: "root",
+    DATABASE: "reacthookscrud"
+})
+
+
+/*module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "root",
@@ -10,4 +21,4 @@ module.exports = {
       acquire: 30000,
       idle: 10000
     }
-  };
+  };*/

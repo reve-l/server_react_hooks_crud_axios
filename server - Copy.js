@@ -1,26 +1,18 @@
-//const express = require("express");
-//const cors = require("cors");
-import express from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
+
 
 const app = express();
 
-app.use(express.json());
-app.use(cors());
-
-app.listen(8081);
-
-
-/*var corsOptions = {
+var corsOptions = {
   origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
-*/
 
 
 //call sync method
-/*const db = require("./models");
+const db = require("./models");
 db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
@@ -28,7 +20,6 @@ db.sequelize.sync()
   .catch((err) => {
     console.log("Failed to sync db: " + err.message);
   });
-*/
 
   /*
   In development, you may need to drop existing tables and re-sync database. Just use force: true as following code:
@@ -41,10 +32,10 @@ db.sequelize.sync()
 
 
 // parse requests of content-type - application/json
-//app.use(express.json());
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // simple route
 /*app.get("/", (req, res) => {
@@ -52,11 +43,11 @@ db.sequelize.sync()
 });*/
 
 
-/*routes=require('./routes/tutorial.routes');
-app.use('/', routes);*/
+routes=require('./routes/tutorial.routes');
+app.use('/', routes);
 
 // set port, listen for requests
-/*const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
-});*/
+});
