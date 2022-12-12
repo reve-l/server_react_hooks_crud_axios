@@ -1,14 +1,17 @@
 //const express = require("express");
 //const cors = require("cors");
+
 import express from "express";
 import cors from "cors";
+import Routes from "./routes/tutorial.routes";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.listen(8081);
+app.use("/",Routes);
+app.listen(5000);
 
 
 /*var corsOptions = {

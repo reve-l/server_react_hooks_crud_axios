@@ -1,3 +1,37 @@
+import express from "express";
+import {getTuto} from "../controllers/tutorial.controller.js";
+
+const router = express.Router();
+
+router.get('/',getTuto);
+
+
+
+export default router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ANCIEN CODE...
+//::
+
 /*When a client sends request for an endpoint using HTTP request (GET, POST, PUT, DELETE), we need to determine how the server will reponse by setting up the routes.
 
 These are our routes:
@@ -9,6 +43,8 @@ These are our routes:
 Create a turorial.routes.js inside app/routes folder with content like this:
 */
 
+
+/*
 module.exports = app => {
   const tutorials = require("../controllers/tutorial.controller.js");
 
@@ -37,6 +73,7 @@ module.exports = app => {
 
   //app.use('/api/tutorials', router);
 };
+*/
 
 /*
 You can see that we use a controller from /controllers/tutorial.controller.js.
