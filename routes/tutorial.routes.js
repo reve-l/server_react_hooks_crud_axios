@@ -4,6 +4,7 @@ import {getTuto} from "../controllers/tutorial.controller.js";
 const router = express.Router();
 
 router.get('/',getTuto);
+//router.get('/:id',getOneTuto);
 
 
 
