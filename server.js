@@ -12,6 +12,8 @@ app.use(cors());
 
 //routes=require('./routes/tutorial.routes');
 app.use('/', mesRoutes);
+app.use('/:id', mesRoutes);
+
 //app.use('/tutos:id', mesRoutes);
 
 //app.use("/",Routes);

@@ -12,19 +12,38 @@ export const getTuto = (_, res)=>{
 }
 
 
+
+//execution de la requete pour obtenir un seul TUTO
+export const getOneTuto = (req,res)=>{
+  const q="SELECT * FROM tutorials WHERE id=?";
+
+  db.query(q,req.params.id, (err,data)=>{
+      if (err) return res.json(data);
+      return res.status(200).json(data);
+  });
+}
+
+
+
+
+
+
+
+//créer un TUTO
 export const createTuto = (req, res)=>{
   const q="INSERT INTO tutorials (`title`,`description`,`published`,`createdAt`,`updatedAt`) VALUES(?)";
   
-  const tutorial = {
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  };
+  const tutorial = [
+    req.body.title,
+    req.body.description,
+    req.body.published ? req.body.published : false,
+    new Date(),
+    req.body.updatedAt
+  ];
 
   db.query(q, [tutorial],(err)=>{
       if (err) return res.json(err);
+      console.log(tutorial);
       return res.status(200).json("ok");
   });
 }
@@ -35,15 +54,15 @@ export const createTuto = (req, res)=>{
 
 
 export const updateTuto = (req, res)=>{
-  const q="UPDATE tutorials SET `title`=?,`description`=?,`published`=?,`createdAt`=?,`updateAt`=? WHERE `id`=?";
+  const q="UPDATE tutorials SET `title`=?,`description`=?,`published`=?,`createdAt`=?,`updatedAt`=? WHERE `id`=?";
   
-  const tutorial = {
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false,
-    createdAt: req.body.createdAt,
-    updatedAt: req.body.updatedAt
-  };
+  const tutorial = [
+    req.body.title,
+    req.body.description,
+    req.body.published ? req.body.published : false,
+    req.body.createdAt,
+    new Date()
+  ];
 
   db.query(q, [...tutorial,req.params.id],(err)=>{
       if (err) return res.json(err);
@@ -53,12 +72,25 @@ export const updateTuto = (req, res)=>{
 
 
 
-export const deleteTuto = (req, res)=>{
+//supprimer 1 tuto
+export const deleteOneTuto = (req, res)=>{
   const q="DELETE FROM tutorials WHERE `id`=?";
 
   db.query(q, [req.params.id],(err)=>{
       if (err) return res.json(err);
       return res.status(200).json("okdel");
+  });
+}
+
+
+
+//supprimer tout
+export const deleteTuto = (_,res)=>{
+  const q="DELETE FROM tutorials";
+
+  db.query(q,(err)=>{
+      if (err) return res.json(err);
+      return res.status(200).json("okdelall");
   });
 }
 

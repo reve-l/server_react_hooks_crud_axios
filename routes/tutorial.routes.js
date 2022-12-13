@@ -1,13 +1,21 @@
 import express from "express";
-import {getTuto,createTuto,updateTuto,deleteTuto} from "../controllers/tutorial.controller.js";
+import {getTuto,getOneTuto,createTuto,updateTuto,deleteOneTuto,deleteTuto} from "../controllers/tutorial.controller.js";
 
 const router = express.Router();
 
 router.get('/',getTuto);
 
+router.get('/:id',getOneTuto);
+
+
 router.post('/',createTuto);
 
-router.put('/',updateTuto);
+router.patch('/:id',updateTuto);
+
+router.put('/:id',updateTuto);
+ 
+
+router.delete('/:id',deleteOneTuto);
 
 router.delete('/',deleteTuto);
 
